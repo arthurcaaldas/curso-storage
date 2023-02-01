@@ -16,10 +16,16 @@ const addItemToTemplate = (produto) => {
   document.getElementById("item-preco").innerHTML = produto.preco;
   
   const item = template.cloneNode(true);
+  console.log(item.);
   item.removeAttribute('style');
   item.addEventListener('click', () => carrinho.addProduto(produto))
+  item.addEventListener('click', () => carrinho.removeProduto(produto))
 
   container.appendChild(item);
+}
+
+const removeItemToTemplate = (produto) => {
+ 
 }
 
 window.onload = () => {

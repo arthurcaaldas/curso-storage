@@ -11,5 +11,9 @@ class Carrinho {
       this.produtos.push({ ...produto, qtd: 1 })
       console.log(this.produtos)
     }
+    this.removeProduto = (produto) => {
+      
+    }
   }
+
 }
