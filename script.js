@@ -9,23 +9,19 @@ const produtos = [
 
 const addItemToTemplate = (produto) => {
   const container = document.getElementById("lista-itens");
-  const template = document.getElementById("item");
+  const template = document.getElementsByClassName("item")[0];
+  const clone = template.cloneNode(true);
 
-  document.getElementById("item-titulo").innerHTML = produto.nome;
-  document.getElementById("item-ano").innerHTML = produto.ano;
-  document.getElementById("item-preco").innerHTML = produto.preco;
-  
-  const item = template.cloneNode(true);
-  console.log(item.);
-  item.removeAttribute('style');
-  item.addEventListener('click', () => carrinho.addProduto(produto))
-  item.addEventListener('click', () => carrinho.removeProduto(produto))
+  clone.removeAttribute('style')
 
-  container.appendChild(item);
-}
+  clone.getElementsByClassName('item-titulo')[0].innerHTML = produto.nome;
+  clone.getElementsByClassName('item-ano')[0].innerHTML = produto.ano;
+  clone.getElementsByClassName("item-preco")[0].innerHTML = produto.preco;
 
-const removeItemToTemplate = (produto) => {
- 
+  clone.getElementsByClassName('item-comprar')[0].addEventListener('click', () => carrinho.addProduto(produto))
+  clone.getElementsByClassName('item-remover')[0].addEventListener('click', () => carrinho.removeProduto(produto))
+
+  container.appendChild(clone);
 }
 
 window.onload = () => {
